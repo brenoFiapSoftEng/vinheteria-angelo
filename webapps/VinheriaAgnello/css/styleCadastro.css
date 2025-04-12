@@ -1,0 +1,70 @@
+/* Reset e base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* remove scroll duplo */
+}
+
+/* Container geral da tela */
+.cadastro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 40px 20px 60px; /* mais espaço inferior pro link */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Centraliza a logo */
+.logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  width: 120px;
+}
+
+/* Formulário centralizado e com limite */
+.form-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Estilo dos inputs */
+input {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Botão */
+.btn-acessar {
+  width: 100%;
+  padding: 15px;
+  background-color: #6d1d1d;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Link "já tenho cadastro" no rodapé */
+.login-link {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  color: #6d1d1d;
+}
