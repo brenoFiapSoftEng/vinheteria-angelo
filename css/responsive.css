@@ -1,0 +1,10 @@
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 0; 
+    }
+
+
+    .hamburger {
+        display: block; /* ← Agora o botão hambúrguer aparece sempre */
+    }
+}
