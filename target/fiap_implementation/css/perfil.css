@@ -1,0 +1,156 @@
+.perfil {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+.perfil h2 {
+    font-family: inherit; /* igual ao resto do site */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.foto-cliente {
+    text-align: center;
+}
+
+.foto-cliente img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+}
+
+.perfil form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+.perfil label {
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.input-cinza {
+    background-color: #D9D9D9;
+    color: #A3A3A3;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.btn-salvar {
+    background-color: #751617;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.btn-salvar:hover {
+    background-color: #a00000;
+}
+
+.perfil h3 {
+    font-size: 20px;
+    margin: 40px auto 10px auto;
+    text-align: left;
+    font-weight: bold;
+    max-width: 400px;
+    width: 100%;
+}
+
+.info-bloco {
+    background-color: #D9D9D9;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.pedido li {
+    list-style: none;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .perfil {
+        padding: 10px;
+    }
+
+    .input-cinza,
+    .info-bloco,
+    .btn-salvar {
+        width: 100%;
+        max-width: 400px; /* mantém o tamanho como no desktop */
+        font-size: 14px;
+        border-radius: 12px; /* mais arredondado */
+    }
+
+    .perfil label {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .foto-cliente img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.perfil-conteudo {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.perfil h2 {
+    text-align: center; /* só o título "Meu Perfil" centralizado */
+}
+
+.btn-salvar {
+    background-color: #751617;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 15px; /* ← mais arredondado */
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    .btn-salvar {
+        width: auto;         /* ← evita esticar */
+        max-width: 200px;    /* ← opcional: define um limite */
+    }
+}

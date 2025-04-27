@@ -1,0 +1,189 @@
+erDiagram
+    USUARIO {
+        int usuario_id PK
+        string nome
+        string email
+        string senha
+        string telefone
+        date data_nascimento
+        date data_cadastro
+        boolean ativo
+        string tipo_usuario
+    }
+    
+    ENDERECO {
+        int endereco_id PK
+        int usuario_id FK
+        string cep
+        string logradouro
+        string numero
+        string complemento
+        string bairro
+        string cidade
+        string estado
+        string pais
+        boolean endereco_principal
+    }
+    
+    PRODUTO {
+        int produto_id PK
+        int categoria_id FK
+        int regiao_id FK
+        string nome
+        string descricao
+        decimal preco
+        int estoque
+        string imagem_url
+        boolean ativo
+        date data_cadastro
+        string codigo_sku
+        decimal teor_alcoolico
+        int ano_safra
+        int volume_ml
+    }
+    
+    CATEGORIA {
+        int categoria_id PK
+        string nome
+        string descricao
+        boolean ativo
+    }
+    
+    REGIAO {
+        int regiao_id PK
+        string nome
+        string pais
+        string descricao
+        boolean ativo
+    }
+    
+    UVA {
+        int uva_id PK
+        string nome
+        string descricao
+        boolean ativo
+    }
+    
+    PRODUTO_UVA {
+        int produto_uva_id PK
+        int produto_id FK
+        int uva_id FK
+        decimal percentual
+    }
+    
+    HARMONIZACAO {
+        int harmonizacao_id PK
+        string nome
+        string descricao
+        string tipo
+        boolean ativo
+    }
+    
+    PRODUTO_HARMONIZACAO {
+        int produto_harmonizacao_id PK
+        int produto_id FK
+        int harmonizacao_id FK
+        int nivel_compatibilidade
+    }
+    
+    PEDIDO {
+        int pedido_id PK
+        int usuario_id FK
+        int endereco_entrega_id FK
+        date data_pedido
+        date data_atualizacao
+        string status
+        decimal valor_produtos
+        decimal valor_frete
+        decimal valor_desconto
+        decimal valor_total
+        string codigo_rastreio
+        string forma_pagamento
+        string numero_transacao
+    }
+    
+    ITEM_PEDIDO {
+        int item_pedido_id PK
+        int pedido_id FK
+        int produto_id FK
+        int quantidade
+        decimal preco_unitario
+        decimal subtotal
+    }
+    
+    CARRINHO {
+        int carrinho_id PK
+        int usuario_id FK
+        date data_criacao
+        date data_atualizacao
+        boolean ativo
+    }
+    
+    ITEM_CARRINHO {
+        int item_carrinho_id PK
+        int carrinho_id FK
+        int produto_id FK
+        int quantidade
+        date data_adicao
+    }
+    
+    AVALIACAO {
+        int avaliacao_id PK
+        int usuario_id FK
+        int produto_id FK
+        int estrelas
+        string comentario
+        date data_avaliacao
+        boolean aprovado
+    }
+    
+    CONVERSA_IA {
+        int conversa_id PK
+        int usuario_id FK
+        date data_inicio
+        date data_fim
+        boolean ativa
+    }
+    
+    MENSAGEM_IA {
+        int mensagem_id PK
+        int conversa_id FK
+        string conteudo
+        timestamp timestamp
+        string origem
+        string contexto
+    }
+    
+    RECOMENDACAO_IA {
+        int recomendacao_id PK
+        int mensagem_id FK
+        int produto_id FK
+        string motivo_recomendacao
+        int relevancia
+    }
+
+    USUARIO ||--o{ ENDERECO : possui
+    USUARIO ||--o{ PEDIDO : realiza
+    USUARIO ||--o{ CARRINHO : possui
+    USUARIO ||--o{ AVALIACAO : faz
+    USUARIO ||--o{ CONVERSA_IA : inicia
+    
+    CATEGORIA ||--o{ PRODUTO : classifica
+    REGIAO ||--o{ PRODUTO : origem
+    
+    PRODUTO ||--o{ PRODUTO_UVA : composicao
+    UVA ||--o{ PRODUTO_UVA : presente_em
+    
+    PRODUTO ||--o{ PRODUTO_HARMONIZACAO : harmoniza_com
+    HARMONIZACAO ||--o{ PRODUTO_HARMONIZACAO : aplicada_em
+    
+    PRODUTO ||--o{ ITEM_PEDIDO : vendido_em
+    PRODUTO ||--o{ ITEM_CARRINHO : adicionado_em
+    PRODUTO ||--o{ AVALIACAO : recebe
+    PRODUTO ||--o{ RECOMENDACAO_IA : recomendado_como
+    
+    PEDIDO ||--o{ ITEM_PEDIDO : contem
+    CARRINHO ||--o{ ITEM_CARRINHO : contem
+    
+    CONVERSA_IA ||--o{ MENSAGEM_IA : possui
+    MENSAGEM_IA ||--o{ RECOMENDACAO_IA : gera
